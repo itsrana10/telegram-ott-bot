@@ -13,11 +13,21 @@ VIDEO_FILE_ID = "BAACAgQAAyEFAASsX1-0AAMQaiUugm7SJt-edUnbvW-7UxHoDhoAAkseAAL3PwF
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
-        [InlineKeyboardButton("🎬 Movie 1", callback_data="movie1")]
+        [InlineKeyboardButton("▶ Watch Now", callback_data="movie1")]
     ]
 
-    await update.message.reply_text(
-        "Select a movie:",
+    await update.message.reply_photo(
+        photo="https://picsum.photos/800/450",
+        caption="""
+🎬 Movie 1
+
+⭐ Rating: 8.5/10
+🎭 Category: Action
+📝 Description:
+Best action movie collection.
+
+👇 Click Watch Now
+""",
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
