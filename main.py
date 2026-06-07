@@ -6,7 +6,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
-        [InlineKeyboardButton("🎬 Movie 1", url="https://t.me/Bangla_Movie2027")]
+        [InlineKeyboardButton("🎬 Movie 1", url="https://t.me/CineBox_BD")]
     ]
 
     await update.message.reply_text(
