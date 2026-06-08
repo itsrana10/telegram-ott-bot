@@ -33,7 +33,7 @@ def save_movies(movies):
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        f"CineBox BD 🎬\n\nYour ID: {update.effective_user.id}"
+        f"Welcome to CineBox BD 🎬\n\nYour ID: {update.effective_user.id}"
     )
 
 
