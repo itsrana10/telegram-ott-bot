@@ -23,7 +23,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
 
     await update.message.reply_text(
-        "🎬 Welcome to CineBox BD"
+        f"Welcome to CineBox BD 🎬\n\nYour ID: {update.effective_user.id}"
     )
 
 app = Application.builder().token(BOT_TOKEN).build()
