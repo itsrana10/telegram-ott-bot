@@ -32,9 +32,25 @@ def save_movies(movies):
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        f"Welcome to CineBox BD 🎬\n\nYour ID: {update.effective_user.id}"
-    )
+
+data = load_movies()
+
+if len(context.args) > 0:
+    movie_id = context.args[0]
+
+    for movie in data:
+        if movie.get("id") == movie_id:
+
+            await context.bot.send_video(
+                chat_id=update.effective_chat.id,
+                video=movie["file_id"],
+                caption=movie["title"]
+            )
+            return
+
+await update.message.reply_text(
+    f"Welcome to CineBox BD 🎬\n\nYour ID: {update.effective_user.id}"
+)
 
 
 async def movies(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -81,9 +97,10 @@ async def receive_title(update: Update, context: ContextTypes.DEFAULT_TYPE):
     data = load_movies()
 
     data.append({
-        "title": title,
-        "file_id": file_id
-    })
+"id": f"movie{len(data)+1}",
+"title": title,
+"file_id": file_id
+})
 
     save_movies(data)
 
