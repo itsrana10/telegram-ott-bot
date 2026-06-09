@@ -68,7 +68,7 @@ async def receive_video(update: Update, context: ContextTypes.DEFAULT_TYPE):
     waiting_for_title[update.effective_user.id] = True
 
     await update.message.reply_text(
-        "🎬 Movie Name?"
+        "🎬Movie Name?"
     )
 
 
