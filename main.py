@@ -53,10 +53,16 @@ async def movies(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def receive_video(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def receive_video(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_ID:
         return
 
     file_id = update.message.video.file_id
+
+    # File ID দেখাবে
+    await update.message.reply_text(
+        f"📁 FILE ID:\n\n{file_id}"
+    )
 
     pending_video[update.effective_user.id] = file_id
     waiting_for_title[update.effective_user.id] = True
